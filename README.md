@@ -21,3 +21,7 @@ uv pip install --python ~/laya-env/bin/python "laya[serve]==0.3.20" scikit-learn
 Then open http://127.0.0.1:8765.
 
 All emails in `data/inbox.jsonl`, and all credentials in `demo-template/.env`, are synthetic.
+
+## License
+
+MIT. See [LICENSE](LICENSE). Laya itself is Apache-2.0.
