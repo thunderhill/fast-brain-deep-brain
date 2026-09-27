@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "deny": ["Read(./.env)", "Bash(rm -rf *)", "Bash(cat .env*)"]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [{ "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/../guard/laya_guard.py\"", "timeout": 10 }]
+      }
+    ]
+  }
+}

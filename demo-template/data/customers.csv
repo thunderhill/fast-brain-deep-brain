@@ -1,0 +1,6 @@
+customer_id,company,plan,mrr_usd,renewal
+C-1001,Acme Logistics,enterprise,18400,2027-01-31
+C-1002,Bluefin Retail,growth,4200,2026-11-15
+C-1003,Cobalt Health,enterprise,22750,2027-03-01
+C-1004,Dunmore Legal,starter,690,2026-10-30
+C-1005,Everly Foods,growth,5100,2027-02-14
