@@ -2,247 +2,247 @@
  "NW-1006": {
   "department": "account",
   "urgency": "low",
-  "why": "The mention of billing details and a name change could suggest billing, but the customer asks only to change the account and workspace name and to leave billing untouched, so this is a routine account-settings update with no urgency ('no rush').",
-  "draft_reply": "Hi Fatima, thanks for letting us know, and congratulations on the rebrand! We'll update the company name on your account and workspace header to Cedar & Co Consulting, and leave your billing details as they are. We'll reach out if we need any documents to confirm the change, and let you know once it's done. Best, Northwind Cloud Support",
-  "duration_s": 7.8
+  "why": "It reads like a routine profile update but touches billing/legal entity naming, so I'd loop in verification of the new legal name without escalating urgency since billing stays unchanged.",
+  "draft_reply": "Hi Fatima, happy to update the account and workspace header to Cedar & Co Consulting. If you have a certificate of name change or updated letterhead, that helps us confirm the new legal name, but isn't required. We'll make the change and confirm once done. Thanks for letting us know!",
+  "duration_s": 6.4
  },
  "NW-1002": {
   "department": "technical",
   "urgency": "normal",
-  "why": "The pharmacy context might suggest security or compliance, but this is a connector setup error with no sign of a breach, data exposure or outage, and the customer has already ruled out grants and tried both identifier formats, so it goes to technical as a non-critical blocker.",
-  "draft_reply": "Hi Sanjay, thanks for the detail. Please confirm the identifier has no https:// or .snowflakecomputing.com suffix, and that underscores in the account name are entered as hyphens. If it still fails, please send the exact identifier (redacted if needed), your release version, and the error timestamp so we can check logs. We'll investigate and update you shortly.",
-  "duration_s": 13.2
+  "why": "Customer already ruled out the two standard account-identifier formats and confirmed grants via SnowSQL, so this looks like a possible connector bug with AWS-region Snowflake accounts rather than user error, warranting an engineering escalation.",
+  "draft_reply": "Thanks for the thorough troubleshooting, Sanjay \u2014 that rules out the usual causes. This may be a connector-side issue with AWS-hosted Snowflake accounts. Could you share the exact identifier string (redact anything sensitive) plus any error codes or screenshots? I'm escalating to engineering to check for known issues and will follow up shortly.",
+  "duration_s": 15.9
  },
  "NW-1009": {
   "department": "sales",
-  "urgency": "normal",
-  "why": "The email touches sales, billing and account management, but the decision that gates everything else is the volume discount on a mid-term expansion, which only sales can approve, so I'm routing it to sales (billing handles the co-term proration afterward) at normal urgency because the start date is next month and nothing is broken.",
-  "draft_reply": "Hi Martin, thanks for reaching out. I've routed your request to our sales team, who handle seat expansions and volume pricing. They'll propose a rate for the combined 420 seats and co-term the new seats to your June renewal. To speed things up, please send the sister company's legal name and your preferred start date. You'll hear from us shortly. Best, Northwind Cloud Support",
-  "duration_s": 13.6
+  "urgency": "high",
+  "why": "This spans sales (volume pricing), billing (co-term proration), and account (seat provisioning) with a tight one-month lead time, but since the core ask is a commercial negotiation on price and contract terms, sales should own it and loop in billing/account.",
+  "draft_reply": "Hi Martin, thanks for reaching out \u2014 happy to help. We can co-term the new seats to your existing June renewal and put together volume pricing for the combined 420 seats. I'm looping in our sales team, who'll follow up within 1 business day to get details on your sister company's onboarding timeline and finalize numbers.",
+  "duration_s": 10.8
  },
  "NW-1014": {
   "department": "technical",
-  "urgency": "normal",
-  "why": "It's unclear whether this is an undocumented export cap or a bug, and it looks like an account or data-export question, but a silent cutoff at exactly 10,000 rows is a product defect that engineering must confirm; the auditor deadline next week and the customer's own 'not a fire' framing make it normal, not high.",
-  "draft_reply": "Hi Ben, thanks for flagging this. A silent stop at exactly 10,000 rows looks like an export cap, and it shouldn't happen without a warning. I've escalated to our technical team to confirm the cause and get you the full 41k-row file before your audit. As a stopgap, exporting smaller date ranges (e.g., weekly) may work. We'll update you within one business day.",
-  "duration_s": 12.9
+  "urgency": "high",
+  "why": "It reads like a data-export/account request on the surface, but a hard 10,000-row cutoff with no error is a product bug in the reporting engine, so it belongs with engineering/technical, and the audit deadline next week bumps urgency despite the customer's own low-key tone.",
+  "draft_reply": "Hi Ben, thanks for flagging this \u2014 that's a bug, not an intended limit. Our CSV export is capping at 10,000 rows regardless of the actual transaction count. I'm escalating to engineering now and will also get you a full manual export of the Q3 data today so you're covered for your auditors' deadline.",
+  "duration_s": 15.2
  },
  "NW-1020": {
   "department": "billing",
   "urgency": "high",
-  "why": "It spans billing (failed charge, deadline extension), technical (card-update page hangs) and a security angle (customer offers card details over an informal channel), but the core need is resolving the failed payment before the 48-hour suspension, so billing owns it and must reply with a secure payment link rather than take card details by email.",
-  "draft_reply": "Hi Jamal, thanks for flagging this. Please don't send card details by email; we can't accept them securely. I've escalated your account to billing as urgent, asking for a suspension hold while the card update is sorted. They'll send a secure payment link to retry the charge, and we're looking into the settings page issue. Which browser are you using?",
-  "duration_s": 12.2
+  "why": "It's primarily a billing/suspension issue but tangles in a broken settings page (technical bug) and a request to share card details directly, which we should never collect outside our secure payment flow \u2014 route to billing with a security note attached.",
+  "draft_reply": "Hi Jamal, thanks for flagging this. We won't collect card details by email or chat \u2014 please retry via Settings > Billing; if it still spins, that's a known glitch we're escalating now. Meanwhile, we're extending your deadline 5 business days so payroll invoices aren't affected. No suspension risk in the meantime.",
+  "duration_s": 13.1
  },
  "NW-1022": {
   "department": "sales",
   "urgency": "normal",
-  "why": "The email mixes a pricing quote (sales) with a proration question (billing), but this is an existing customer buying an add-on, so sales should own the quote and confirm the billing treatment; there is no outage or deadline, so it is normal priority.",
-  "draft_reply": "Hi Terrence, thanks for reaching out. Our sales team will send you a quote for the advanced analytics add-on for 10 users starting next month. They'll also confirm whether it's prorated to your March renewal or billed from the next cycle. If you have a preferred start date, reply and let us know. Best, Northwind Cloud",
-  "duration_s": 9.7
+  "why": "It's genuinely split between a new add-on quote (sales) and proration mechanics (billing), but since this is a paid upsell requiring a quote/contract change, sales should own it and loop billing in for the proration specifics.",
+  "draft_reply": "Hi Terrence, thanks for reaching out! Our sales team will follow up shortly with pricing for the advanced analytics add-on (10 users) and can outline both proration and next-cycle billing options so you can pick what works best. We'll have this to you within one business day.",
+  "duration_s": 12.9
  },
  "NW-1025": {
   "department": "security",
   "urgency": "high",
-  "why": "It reads like a billing complaint (payment failed) but is really a phishing campaign impersonating Northwind that reached several customer staff, and one person clicked the link, so it goes to security as an active brand-abuse incident; it isn't critical because no credentials were entered and there's no sign of a breach on our side.",
-  "draft_reply": "Thank you for reporting this, Patrick. We're treating it as phishing impersonating Northwind, and our security team is investigating. Please have staff delete the email without clicking, and ask the person who clicked to run a malware scan on their device and change passwords if any are reused. Please also send the original as an attachment so we can examine its headers. We'll update you soon.",
-  "duration_s": 12.2
+  "why": "It's a brand-impersonation phishing campaign rather than a breach of Northwind's own systems, but it needs fast security-team triage (domain takedown, abuse report) and reassurance to the customer, so I'm routing to security at high rather than critical since no credentials were actually entered.",
+  "draft_reply": "Thanks for flagging this, Patrick \u2014 that email is not from us; the domain is spoofed. Please forward the original to security@northwind-cloud.com so we can report it for takedown. Since no details were entered, no action is needed on your end, but have that staff member watch for anything unusual. We'll confirm once resolved.",
+  "duration_s": 26.0
  },
  "NW-1028": {
   "department": "security",
   "urgency": "high",
-  "why": "This is a contract negotiation that looks like a sales matter, but liability caps, EU data residency and termination rights are legal and compliance terms that only counsel can accept or reject, so I'm routing it to the legal/compliance queue with the sales rep looped in as deal owner, and marking it high because of the $600k deal but not critical since no incident or hard deadline is stated.",
-  "draft_reply": "Hello Richard, thank you for sending the MSA redlines. Liability, data residency and termination terms require legal review, so I've routed your marked-up draft to our legal counsel and looped in your sales representative as deal owner. They will contact you directly about the proposed changes. Support can't confirm any terms. Regards, Northwind Cloud Support",
-  "duration_s": 11.2
+  "why": "The redlines mix an active sales negotiation with legal/compliance terms (liability, data residency, termination) that only legal counsel can approve, so I'm routing to security/compliance while flagging the deal owner to stay looped in given the $600k value.",
+  "draft_reply": "Thank you, Richard. We've routed your redlines to our legal/compliance team for review, and looped in your sales contact given the pending agreement. You'll hear back from legal counsel directly on the liability cap, data residency, and termination clauses shortly.",
+  "duration_s": 23.4
  },
  "NW-1030": {
   "department": "security",
   "urgency": "normal",
-  "why": "This looks like a sales or technical request, but a vendor security questionnaire is compliance work, and I can't assume a CAIQ or whitepaper exists, so security should confirm what can be shared; the three-week deadline and lack of any incident make it normal urgency.",
-  "draft_reply": "Hi Kwame, thanks for reaching out. I've passed your request to our security team, who handle vendor questionnaires. They'll confirm which documents we can share (such as a CAIQ or security overview, possibly under NDA) and help with any remaining questions. Please send the questionnaire too, so they can plan ahead of your deadline. Best, Northwind Support",
-  "duration_s": 10.3
+  "why": "It reads like a routine sales/procurement inquiry but is actually a compliance documentation request (CAIQ/security whitepaper) that only the security/compliance team can fulfill, and the three-week deadline keeps it non-urgent.",
+  "draft_reply": "Hi Kwame, thanks for reaching out. We do have a completed CAIQ and a security whitepaper covering encryption, access control, backups, and incident response. I'll loop in our compliance team to send these over well ahead of your three-week deadline. Let us know if procurement needs a specific format (e.g., SIG) and we'll accommodate.",
+  "duration_s": 12.8
  },
  "NW-1031": {
   "department": "technical",
   "urgency": "critical",
-  "why": "This looks like a routine SSO cert issue, but the break-glass admin is also locked out by SSO enforcement, so only Northwind engineers can fix it, and only after verifying the requester, since a bank's SSO bypass is a social-engineering target; with 800 users blocked and a 2pm wire cutoff, it is technical and critical.",
-  "draft_reply": "Hi Vikram, we've escalated this as critical to our SSO engineers. Please reply with your tenant ID and the new certificate's thumbprint so we can check the uploaded metadata. If needed, we can temporarily lift SSO enforcement to restore admin access; we'll first verify your identity by calling your number on file, given your 2pm cutoff.",
-  "duration_s": 13.0
+  "why": "It reads like an account lockout since even break-glass admin access is blocked, but the root cause is a SAML cert/metadata mismatch from their own IdP rotation, and with 800 users locked out and a 2pm wire cutoff at a bank client, it needs technical SSO escalation at critical urgency, not security or account.",
+  "draft_reply": "Vikram, escalating immediately as critical \u2014 full SSO outage with a 2pm wire cutoff. Our on-call engineer will call you within 15 minutes to verify the new IdP metadata/cert against our SAML config. If needed, we can temporarily disable SSO enforcement for your org to restore break-glass access while we fix the signature mismatch. Please share your best callback number now.",
+  "duration_s": 15.9
  },
  "NW-1037": {
   "department": "security",
   "urgency": "normal",
-  "why": "A request from a customer mid-renewal can look like sales or account work, but SOC 2 reports, bridge letters, NDAs and pen test summaries are compliance documentation, which security owns, and there is no stated deadline or incident, so normal urgency.",
-  "draft_reply": "Hi Elise,\n\nThanks for reaching out. I've passed your request to our Security & Compliance team, who handle SOC 2 Type II reports, bridge letters, and pen test summary questions. Since you're open to an NDA, they'll send one for signature and share the documents once it's executed. They'll also confirm the right contact for follow-up questions.\n\nBest regards,\nNorthwind Cloud Support",
-  "duration_s": 11.2
+  "why": "It's framed as a sales renewal task but the actual ask\u2014SOC 2 report, bridge letter, NDA, pen test contact\u2014is a compliance/security document request, so it belongs with security rather than sales.",
+  "draft_reply": "Hi Elise, thanks for reaching out. We'll send our NDA today, and once signed, our security/compliance team will provide the latest SOC 2 Type II report and bridge letter. They'll also loop in the right contact for pen test summary questions. Expect a reply within 1-2 business days.",
+  "duration_s": 6.8
  },
  "NW-1034": {
   "department": "account",
   "urgency": "normal",
-  "why": "It looks like a routine user-add request (account team), but it asks for admin rights on an unverified claim of ownership and Diego can't see the option, so we should verify the owner's role before granting anything rather than escalate to security.",
-  "draft_reply": "Hi Diego, thanks for reaching out. Admin invitations are only available to the verified account owner, so we'll first check the role on your login. Please confirm the email address you sign in with; if it's the owner account, we'll fix your access or guide you through inviting Lucia. We don't add admins from an email request alone, for security. Best, Northwind Support",
-  "duration_s": 14.3
+  "why": "It reads like a simple technical how-to but it's actually an access/permissions request to grant admin rights, so it belongs with account management and needs identity verification of the account owner before acting.",
+  "draft_reply": "Hi Diego, thanks for reaching out! As account owner, you should see 'Invite User' under Settings > Users > Manage Roles. If it's missing, we'll verify your account and enable it. Could you confirm your account owner email so we can check permissions and get Lucia set up with admin access?",
+  "duration_s": 12.6
  },
  "NW-1042": {
   "department": "billing",
   "urgency": "normal",
-  "why": "The request mixes an account-style change (dropping from 25 to 20 seats) with a billing decision (credit for unused seats since August), but both determine what the Oct 5 invoice says and the credit needs billing approval, so billing owns it and Oct 5 is about a week away, which makes it time-bound but not urgent.",
-  "draft_reply": "Hi Trevor, thanks for reaching out. I've passed your request to our billing team, who can reduce your plan from 25 to 20 seats and review your credit request for unused seats since August. Credits depend on our billing policy, so I can't confirm one yet. We'll aim to have your invoice corrected before Oct 5 and will follow up with next steps.",
-  "duration_s": 14.5
+  "why": "The request straddles account (seat count) and billing (retroactive credit) categories, but since the actionable core is an invoice adjustment with a near-term due date, I'm routing to billing with a heads-up to loop in account for the seat change.",
+  "draft_reply": "Thanks, Trevor. We can reduce you to 20 seats and get this reflected before your Oct 5 invoice. On the credit for unused seats since August: our standard policy applies credit from the date of request rather than retroactively, but I'll confirm exact terms with billing and follow up by Oct 2 with specifics.",
+  "duration_s": 13.4
  },
  "NW-1043": {
   "department": "security",
   "urgency": "high",
-  "why": "It reads like an account issue because the customer has already reset their password, but a confirmed unauthorized login on a financial firm's account, plus a request to audit what was viewed or changed, is a potential access incident that needs log review (and the alert email itself could be phishing).",
-  "draft_reply": "Hi Camille, thank you for reporting this and changing your password promptly. We've escalated to our security team, who will review the Lagos login and any data viewed or changed, and report back to you. Meanwhile, please enable two-factor authentication, sign out all other sessions, and rotate any API keys. Please also forward the alert email so we can verify it. \u2014 Northwind Security",
-  "duration_s": 11.7
+  "why": "It reads like a simple account question, but an unrecognized login plus a request to audit what data was viewed or changed is really a potential compromise investigation, which belongs with security rather than general account support.",
+  "draft_reply": "Thanks for flagging this and changing your password immediately \u2014 that was the right move. We're escalating to our security team to review the login and audit whether any data was viewed or changed. We'll also verify MFA is enabled and follow up within a few hours with findings.",
+  "duration_s": 15.7
  },
  "NW-1040": {
   "department": "billing",
   "urgency": "normal",
-  "why": "The 'secure link' wording and the card details could suggest security, but this is a routine payment-method update with no fraud or breach signal, so billing owns it; it is time-sensitive only because the card expires at month end and the next invoice is pending.",
-  "draft_reply": "Hi Yuki, thanks for getting ahead of this. Please don't send card details by email. Payment methods are updated under Billing in your account settings, which may only appear for account owners or billing admins, so it could be hidden for your login. Let us know who the account owner is and we'll send a secure update link from our billing system before your next invoice.",
-  "duration_s": 13.5
+  "why": "This reads as a routine self-service payment update, but the request for us to 'send a secure link' needs a careful reply directing them to update in-app rather than emailing any link, to avoid phishing-like behavior.",
+  "draft_reply": "Hi Yuki, thanks for reaching out! You can update your card under Settings > Billing > Payment Methods, then click 'Edit' next to your current card. If you don't see that option, let me know your account email and I'll double-check your billing role permissions. Happy to help before the next invoice!",
+  "duration_s": 7.2
  },
  "NW-1046": {
   "department": "sales",
   "urgency": "low",
-  "why": "This is a non-customer partnership inquiry that looks like it could be an account or general support question, but it's about referral/reseller commercial terms and a multi-client product need, so sales owns it, with no time pressure or risk involved.",
-  "draft_reply": "Hi Beatrice, thanks for reaching out and for considering Northwind Cloud for your clients. I've passed your request to our sales team, who handle partner and referral arrangements. They'll follow up with details on program options, commission structure, and multi-client dashboard capabilities, along with any partner materials available. Best regards, Northwind Cloud Support",
-  "duration_s": 8.8
+  "why": "It reads partly like an account/product question (multi-client dashboard) but the core ask is business development (referral/reseller commissions), so it belongs with sales rather than account management.",
+  "draft_reply": "Hi Beatrice, thanks for reaching out! We do have a partner/reseller program with commission tiers and a multi-client dashboard option. I'll have our partnerships team send over the info pack and set up a call to discuss fit for your 40 clients. Talk soon!",
+  "duration_s": 6.6
  },
  "NW-1050": {
   "department": "billing",
   "urgency": "normal",
-  "why": "The email mentions a cancellation, which could suggest the account team, but the actual ask is a prorated credit note on a specific invoice, so billing owns it; it is a $480 dispute with no deadline, and the customer is flexible on applying it to next month's invoice.",
-  "draft_reply": "Hi Louise, thanks for flagging this. I've passed invoice NW-INV-20733 to our billing team to confirm your Aug 12 cancellation date and calculate the prorated amount for the Payroll Export add-on. Applying any credit to next month's invoice is fine, and we'll note that preference. You'll hear from us with the confirmed credit note amount shortly. Kind regards, Northwind Cloud Support",
-  "duration_s": 11.6
+  "why": "This needs someone to verify the Aug 12 cancellation date against the Payroll Export add-on's billing cycle and calculate the exact prorated amount before issuing NW-INV-20733's credit, so it's routed to billing rather than resolved automatically.",
+  "draft_reply": "Hi Louise, thanks for flagging this. We'll confirm the Aug 12 cancellation date and calculate the prorated unused portion of the Payroll Export add-on against invoice NW-INV-20733. We'll issue a credit note and apply it to next month's invoice as requested. You'll hear back within 2 business days. Thanks for your patience!",
+  "duration_s": 10.8
  },
  "NW-1045": {
-  "department": "account",
-  "urgency": "normal",
-  "why": "It reads like a billing request, but the real risks are plan-change consequences (Starter user limits and what happens to existing analytics data), which the account team owns; there's no deadline or complaint, so normal urgency, and this is also a retention chance to confirm the downgrade instead of a cancellation.",
-  "draft_reply": "Hi Ethan, thanks for reaching out. Yes, we can move Slate Creek to Starter effective your next billing date. Before scheduling it, we're confirming that Starter supports your 5 users and exactly what happens to any existing analytics data, so nothing unexpected is removed. We'll follow up shortly with those details and your exact switch date. Northwind Cloud Support",
-  "duration_s": 13.6
+  "department": "billing",
+  "urgency": "low",
+  "why": "The core request is a plan downgrade (billing), but the data-retention concern nudges toward account/data-export territory, so the reply needs to reassure on data safety while routing as billing.",
+  "draft_reply": "Hi Ethan, thanks for reaching out! We can schedule your downgrade from Business to Starter for your next billing date. No invoicing data or history will be deleted during the switch. Please double check Starter's user limit against your 5 seats. Let us know if you'd like us to confirm the exact date!",
+  "duration_s": 9.8
  },
  "NW-1054": {
   "department": "account",
   "urgency": "normal",
-  "why": "The request mentions billing (\"won't be billed again\"), but the action is a cancellation with auto-renew turned off, which the account team owns; with the Dec 31 term end about three months away it needs a prompt written confirmation but isn't urgent, though the team should check whether a notice-period deadline applies.",
-  "draft_reply": "Hi Fiona, thank you for letting us know, and congratulations on the merger. We've received your request to cancel account GD-11827 effective December 31, with no auto-renewal. Our account team is recording it now and will confirm by email, including that no further charges will apply after the term ends. Please export any data you need before December 31. Kind regards, Northwind Cloud Support",
-  "duration_s": 14.4
+  "why": "It's a clean cancellation request with no dissatisfaction or immediate deadline (effective Dec 31), but routing to account ensures auto-renewal is disabled and written confirmation is sent as requested.",
+  "draft_reply": "Hi Fiona, thank you for letting us know. We've noted that account GD-11827 will be cancelled effective December 31 and will not auto-renew. You'll receive written confirmation once this is processed. We're glad the product served you well, and we wish Glenrock Dental Group all the best with the merger.",
+  "duration_s": 9.0
  },
  "NW-1059": {
   "department": "account",
   "urgency": "high",
-  "why": "It looks like a security matter because a former employee still has access and the customer wants an activity review, but the ask is user deactivation plus an access-log pull with no sign of a breach, so account owns it, with a security flag if the activity looks suspicious; it's high rather than critical because it needs same-day action but there's no evidence of misuse, and we must first verify Frank has admin authority.",
-  "draft_reply": "Hi Frank, thanks for flagging this. To protect your data, we'll first verify your admin status; please reply with the former employee's name and login email. If you're not an admin, we'll tell you who the account owner is so they can confirm. Once verified, we'll deactivate the user today and share their activity from the last 30 days.",
-  "duration_s": 10.9
+  "why": "It's mainly an access-deprovisioning request (account team's job) but the audit-log ask for a departed user's activity means we should loop in security if anything unusual turns up.",
+  "draft_reply": "Hi Frank, thanks for flagging this \u2014 we're removing that login today. Since you're not showing as an admin on the account, we're confirming who is so access changes route correctly going forward. We'll also pull their last-30-day activity log and share it, and flag security if anything looks off.",
+  "duration_s": 12.0
  },
  "NW-1056": {
   "department": "billing",
   "urgency": "normal",
-  "why": "The customer is disputing an invoice against a price a sales rep committed to in writing, so billing owns correcting the invoice but needs sales to verify the quote; I'm routing to billing with a sales check, and it's normal urgency because the $1,200 gap is real but there's no stated due-date pressure.",
-  "draft_reply": "Hi Ahmed, thanks for flagging this. We're reviewing invoice NW-60377 against the $8,400 quote from June. Please forward Chris's email so we can verify it. We'll work with our sales team and confirm the correct price shortly, issuing a corrected invoice if needed. Best, Northwind Support",
-  "duration_s": 12.6
+  "why": "It's a pricing dispute between a sales-quoted rate and the billing invoice, so it touches both teams, but I'm routing to billing since they own invoice corrections and will loop in sales to verify Chris's quote.",
+  "draft_reply": "Hi Ahmed, thanks for flagging this \u2014 invoice NW-60377 for $9,600 doesn't match the $8,400 rate Chris confirmed in June. Please forward that email so we can verify it with sales and correct the invoice if confirmed. We'll hold any collection action until this is resolved, and follow up within 1-2 business days.",
+  "duration_s": 24.6
  },
  "NW-1061": {
   "department": "security",
-  "urgency": "critical",
-  "why": "The customer half-explains the password-change email as possibly automated, which makes it look like a routine billing or account ticket, but an unrecognized password change followed by a lockout on an admin account with customer billing data is a suspected account takeover until proven otherwise.",
-  "draft_reply": "Hi Nadia, thanks for reporting this. Contacting us was the right call. We've escalated to our security team as a suspected account compromise. They'll secure your account, revoke active sessions, and review recent activity, then verify your identity before restoring access. Please don't click links in that email or retry the reset, and never share your password. If you can, reply with the time of the email you received.",
-  "duration_s": 14.1
+  "urgency": "high",
+  "why": "It's unclear if this is a delayed notification from her earlier reset or an actual account takeover, but since she has admin access and billing data exposure, we should default to a security review rather than routine access support.",
+  "draft_reply": "Hi Nadia, thanks for flagging this right away \u2014 with admin and billing access, we're treating this as a priority security review. We're locking the account and issuing a fresh reset link now, which you should receive shortly; please don't use the old one. We'll also review recent login activity and follow up with what we find shortly.",
+  "duration_s": 17.7
  },
  "NW-1064": {
   "department": "billing",
   "urgency": "normal",
-  "why": "The tax and 'can't reclaim' language could suggest compliance/legal, but this is a routine invoice correction (VAT ID on file, Irish seller, French B2B customer), so billing should validate the VAT number and issue a credit note or corrected invoice; it's not critical because the amount is small and no access or service is at risk.",
-  "draft_reply": "Bonjour Charlotte, thank you for flagging this. We're checking that VAT number FR40123456789 is validated on your account and was in place when NW-INV-21055 was issued. If so, we'll cancel the invoice and issue a corrected reverse-charge invoice or a credit note, and update you shortly. Could you confirm the entity name on your VAT registration? Kind regards, Northwind Cloud Billing",
-  "duration_s": 13.0
+  "why": "This is a routine B2B reverse-charge VAT correction, not urgent to business operations, but we should verify the VAT number via VIES before issuing a credit note and reissuing the invoice.",
+  "draft_reply": "Bonjour Charlotte, thank you for flagging this. We'll verify VAT number FR40123456789 via VIES and, once confirmed, issue a credit note for NW-INV-21055 along with a corrected invoice reflecting the reverse charge (VAT exempt, Article 196 EU VAT Directive). Expect this within 2 business days.",
+  "duration_s": 10.9
  },
  "NW-1067": {
   "department": "security",
   "urgency": "high",
-  "why": "It reads as a cancellation with data export (account), but it is a formal GDPR portability and erasure request (Art. 20 and 17) with legal documentation needs and a one-month statutory response clock, so the privacy/compliance owner in security must lead, with account support on the export mechanics.",
-  "draft_reply": "Hi Henrik, thank you for your request. We've escalated it to our privacy team, who handle GDPR exports and deletions. They'll verify authorization, then provide a machine-readable export of your invoices, customers, attachments and audit logs. Once you confirm receipt, we'll delete your data, including backups (per our retention cycle), and send written confirmation. You'll get the full timeline shortly, within GDPR's one-month limit.",
-  "duration_s": 19.2
+  "why": "It's both an account data-export/cancellation request and a formal GDPR erasure demand with a statutory response clock and a legal snag (backup/invoice deletion vs. mandatory tax retention), so it needs compliance ownership rather than standard account handling.",
+  "draft_reply": "Thank you, Henrik. We're engaging our compliance team on this GDPR request. We'll provide a full machine-readable export of your data and confirm our deletion process and timeline, noting some records like invoices may need brief retention for legal/tax reasons. Detailed response with timeline within 5 business days.",
+  "duration_s": 38.7
  },
  "NW-1068": {
   "department": "security",
   "urgency": "high",
-  "why": "This is a legal compliance request from a non-customer data subject, and Northwind is probably a processor for Atlas Interiors (the controller), so the request looks like account/data export but needs privacy and legal handling with the one-month Art. 12(3) deadline and identity verification, so I'm routing it to security as high.",
-  "draft_reply": "Dear Elise van der Berg, we confirm receipt of your GDPR Article 15 request. Our privacy team is reviewing it and will contact you shortly with a secure way to verify your identity, so please don't email ID yet. Because your data may have been entered by Atlas Interiors, we'll also work out which party is responsible and tell you how we'll proceed. Kind regards, Northwind Cloud Privacy Team",
-  "duration_s": 12.2
+  "why": "Elise is a data subject of Northwind's customer (Atlas Interiors) rather than our own end user, so we're likely the data processor, not the controller, but the GDPR Art. 15 statutory one-month deadline still creates compliance/legal risk that requires our compliance team's direct handling rather than a standard account request.",
+  "draft_reply": "Thank you for your request. Northwind Cloud acts as a data processor for Atlas Interiors, who is the data controller for the information you describe. We've escalated this to our compliance team, who will confirm receipt formally and coordinate with Atlas Interiors to ensure your Article 15 request is fulfilled within the one-month statutory deadline. We'll be in touch shortly regarding ID verification if needed.",
+  "duration_s": 16.9
  },
  "NW-1075": {
   "department": "security",
   "urgency": "normal",
-  "why": "It looks like routine account admin, but the auditor's retention question and a permanent deletion of a third party's data (possibly a privacy erasure request) are compliance and legal matters, so I'm routing to security with a note to confirm what admins can self-serve; there's no stated deadline, so normal urgency.",
-  "draft_reply": "Hi Leonard, thanks for reaching out. Our compliance team will send documentation on where invoice data is hosted and how long we retain it after account closure, for your auditor. Please hold off deleting any Dunmore Holdings data for now, as deletion is permanent and may conflict with audit or record-keeping obligations. We'll confirm whether you can do it yourselves or should submit a request to us.",
-  "duration_s": 15.2
+  "why": "It blends a compliance/audit retention question with a third-party data deletion request that needs verification (e.g. legal holds) rather than simple self-service, so it belongs with security/compliance rather than account.",
+  "draft_reply": "Thanks for flagging this, Leonard. Both items go to our data compliance team, who'll confirm retention periods for your auditor and walk you through the verified deletion process for Dunmore Holdings' records \u2014 this isn't self-service since we need to confirm no legal holds apply. Expect a follow-up within 1 business day.",
+  "duration_s": 24.5
  },
  "NW-1079": {
   "department": "technical",
-  "urgency": "normal",
-  "why": "It reads like a how-to question about settings, but the export used to work and now writes raw Excel date serials, which is a regression in the CSV export; it has a manual workaround and the customer says it isn't urgent, so normal.",
-  "draft_reply": "Hi Fatima, thanks for reporting this. There's no setting for it; those numbers are raw date values, and since it worked before, this looks like a regression in our CSV export. I've escalated it to our technical team. Could you share a sample export and roughly when it changed? Meanwhile, formatting the column as Date in Excel should display them correctly. Sorry for the extra work.",
-  "duration_s": 15.1
+  "urgency": "low",
+  "why": "It reads like a simple Excel formatting quirk, but the customer's note that it 'used to be fine a couple months ago' suggests a genuine regression in the export logic worth engineering follow-up rather than just a support tip.",
+  "draft_reply": "Thanks for flagging this, Fatima. Those numbers are raw date serials, which suggests something changed in how the Invoice Aging export formats dates. We'll investigate as a possible regression. In the meantime, could you confirm your account name and roughly when it last exported correctly? We'll update you soon.",
+  "duration_s": 11.1
  },
  "NW-1080": {
   "department": "billing",
   "urgency": "high",
-  "why": "It mixes a refund request, a downgrade with partial credit, and a possible missed renewal notice (a compliance angle), but the core ask is a disputed $18,000 charge only six days old, so billing owns it, with high urgency because of the amount, the likely refund window, and chargeback risk.",
-  "draft_reply": "Hi Diego, thank you for flagging this, and I'm sorry you didn't receive a renewal notice. I've escalated invoice NW-INV-21411 to our billing team, who are reviewing refund and downgrade options now. You'll hear from them within one business day. To help, please confirm how many seats your team actively uses. Northwind Cloud Support",
-  "duration_s": 8.6
+  "why": "It's really a hybrid billing/account request (refund vs. downgrade) triggered by a lapsed renewal-notice process, and the size of the charge plus internal escalation to his manager pushes it above normal urgency even though nothing is broken or insecure.",
+  "draft_reply": "Hi Diego, thanks for flagging this and I'm sorry the renewal notice didn't reach you. We're pulling up invoice NW-INV-21411 now to review options, including downgrading seats and prorating the difference. You'll hear back from our billing team within 1 business day with specifics.",
+  "duration_s": 11.8
  },
  "NW-1081": {
-  "department": "sales",
-  "urgency": "high",
-  "why": "The email touches pricing (billing), outages (technical) and a possible exit (account), but Bernard hasn't asked to cancel or dispute a charge; this is a renewal-retention conversation with competitors in play, so it belongs with sales/account management and senior involvement, and it's high rather than critical because the renewal is about 60 days out but a call is requested this week.",
-  "draft_reply": "Hi Bernard, thank you for being direct. An 18% increase two years running alongside two outages is a fair thing to raise before renewing. I'm escalating this to our senior account leadership, and someone will call you this week to discuss pricing, reliability, and what we can do to earn your renewal. What days and times work best, and which number should we use?",
-  "duration_s": 11.4
- },
- "NW-1082": {
   "department": "account",
   "urgency": "high",
-  "why": "It could be a permissions problem or a bug, but the user's role looks correct and a colleague with the same role can still get in, which points to something specific to this user's account (the domain of the account team, who can escalate to technical if it's a bug), and the client meeting tomorrow morning makes it time-sensitive.",
-  "draft_reply": "Hi Yasmin, thanks for the detail, that helps. Since your colleague has the same role but access works, we suspect something specific to your user account. We're checking it now and will update you today. Meanwhile, could your colleague export the AR reports as a backup for tomorrow's meeting? Please also reply with a screenshot of the error.",
-  "duration_s": 12.9
+  "why": "It touches billing, support history, and sales all at once, but the core ask is a retention conversation before auto-renewal with a churn risk and an explicit this-week deadline, so it routes to account management as high urgency.",
+  "draft_reply": "Hi Bernard, thank you for the direct feedback, and I'm sorry the pricing and outages have eroded your confidence. This deserves a real conversation before renewal. I'm arranging for a senior account manager to call you this week to review pricing, reliability, and options. Could you share your best availability?",
+  "duration_s": 13.3
+ },
+ "NW-1082": {
+  "department": "technical",
+  "urgency": "high",
+  "why": "It's genuinely ambiguous between an account/permissions fix and a backend RBAC bug since two same-role users get different results, so I'm routing to technical for root-cause diagnosis given the time-sensitive client meeting.",
+  "draft_reply": "Hi Yasmin, thanks for flagging this \u2014 since your colleague with the same Admin role can access Reports, this looks like a permissions bug on our end rather than something you can fix. We're escalating now and prioritizing it given your meeting tomorrow morning. We'll update you as soon as we have a fix or workaround.",
+  "duration_s": 22.7
  },
  "NW-1084": {
   "department": "billing",
   "urgency": "normal",
-  "why": "The customer can't tell whether this is an invoice error or a contract change, so it could belong to billing or sales, but the first step is checking NW-INV-22240 (a $580 gap, about $99.50 per seat) against the March contract, which is billing's job, and nothing is blocking access or payment yet.",
-  "draft_reply": "Hi Sunita, thanks for flagging this. We're reviewing invoice NW-INV-22240 against your March agreement to find out whether the $3,980 reflects a pricing change or an error. Please do send the sales rep's email, as it will speed things up. We'll reply within one business day with an explanation and, if the invoice is wrong, a corrected invoice or credit. Northwind Cloud Billing",
-  "duration_s": 9.6
+  "why": "It's ambiguous whether this is a billing system error or a sales quote that wasn't honored in the contract, but since the customer is disputing an invoiced amount, billing should own it and loop in sales to verify the quoted rate.",
+  "draft_reply": "Hi Sunita, thanks for flagging this. We'll compare NW-INV-22240 against your March agreement to see why the per-seat rate differs from the $85 quoted. If you have that email from your sales rep, please send it along\u2014it'll help us resolve this quickly. We'll follow up within 1-2 business days.",
+  "duration_s": 14.5
  },
  "NW-1089": {
   "department": "account",
-  "urgency": "normal",
-  "why": "The email combines a cancellation (account) with a prorated refund request (billing), and the cancellation's effective date sets the refund basis, so account owns it and hands the refund to billing; nothing is time-critical because the plan is prepaid and no further charges are pending.",
-  "draft_reply": "Hi Peter, thanks for your note, and sorry the product wasn't the right fit. You don't need to work out departments; we'll coordinate both internally. Our account team will process your cancellation and confirm the effective date, and billing will then review your prorated refund request for NW-INV-57002. If you need a data export, tell us before we close the account.",
-  "duration_s": 12.9
+  "urgency": "high",
+  "why": "The request spans two teams\u2014cancellation is an account action but the prorated refund on a $5,400 annual invoice requires billing's involvement\u2014so it needs to be routed to account with billing looped in rather than split into two tickets.",
+  "draft_reply": "Hi Peter, thanks for reaching out. We're sorry Northwind isn't the right fit. Our account team will process the cancellation and coordinate with billing on your prorated refund for NW-INV-57002. You'll receive confirmation of the cancellation date and refund amount within 2 business days. Let us know if you have any questions in the meantime.",
+  "duration_s": 15.2
  },
  "NW-1095": {
   "department": "account",
   "urgency": "normal",
-  "why": "The email mixes a cancellation, a renewal-charge question (which looks like billing) and a data export request, but all three are part of one end-of-term cancellation, so account owns it and loops in billing to stop the renewal; the Nov 30 term end is about two months away, so it is not urgent.",
-  "draft_reply": "Hi Priyanka, thanks for letting us know. We've logged your cancellation effective at the end of your current term (Nov 30), with no renewal charge. Your account stays fully active until then, and we'll send written confirmation plus step-by-step instructions for exporting all your invoices and customer data before closing. Please export well ahead of Nov 30. Happy to help if you need anything.",
-  "duration_s": 11.5
+  "why": "It touches cancellation, billing (no renewal charge), and data export all at once, but since the term end is ~2 months out and the core ask is closing the account, it belongs with account (who can loop in billing for the renewal confirmation).",
+  "draft_reply": "Hi Priyanka, thanks for letting us know. We've logged your cancellation effective November 30 and confirm you won't be charged for renewal. Our account team will follow up shortly with formal cancellation confirmation and instructions for exporting your invoices and customer data before closure. Let us know if you'd like to schedule the export sooner. Best regards, Northwind Cloud Support",
+  "duration_s": 23.1
  },
  "NW-1092": {
   "department": "security",
-  "urgency": "critical",
-  "why": "This looks like a business-email-compromise attempt (spoofed finance sender, mismatched reply-to, new bank account, end-of-day deadline) rather than a billing question, and $14,600 is at risk today while the customer's payment is on hold, so it goes to security now; I can't confirm from here that it's fake, but the customer should not pay the new account.",
-  "draft_reply": "Hi Andrew, thank you for checking before paying. Please do not pay the new account, and don't reply to or click anything in that email; treat it as suspected fraud. Pay only using the bank details on your original invoice. Please send us the email as an attachment with full headers. Our security team is investigating and will contact you shortly.",
-  "duration_s": 12.9
+  "urgency": "high",
+  "why": "This is a likely business email compromise impersonating Northwind Finance to redirect a $14,600 payment to a fraudulent account, flagged by the mismatched reply-to address, so it needs fraud verification and time-sensitive confirmation before any payment is released.",
+  "draft_reply": "Hi Andrew, thank you for checking first \u2014 this is not a legitimate email from Northwind. We have not changed our banking details, and 'Carla Reyes' is not a Northwind Finance contact. Please do not pay the new account; continue using the details on file for NW-INV-20990. Please report/delete that email. Our security team will follow up shortly in writing.",
+  "duration_s": 14.2
  },
  "NW-1101": {
   "department": "billing",
   "urgency": "normal",
-  "why": "It reads like a settings how-to (technical) and carries a payment-blocking AP requirement, but the core ask is changing invoice content on a recurring billing profile, which billing owns, and no deadline or overdue invoice is stated, so normal urgency.",
-  "draft_reply": "Hi Hiroshi, thanks for reaching out. We're adding PO 88-40213 to your recurring monthly invoices and will confirm here once it's applied. I'm also checking where the PO field lives in your settings so you can update it yourself, and will send exact steps shortly. If any already-issued invoices need the PO, let us know. \u2014 Northwind Billing",
-  "duration_s": 12.1
+  "why": "It bundles an invoice-template change (add PO field) with a self-service settings question, and though it affects the customer's ability to get paid, it's a routine recurring-invoice update rather than an active blocker.",
+  "draft_reply": "Hi Hiroshi, thanks for the details \u2014 I've added PO 88-40213 so it will appear on all future recurring invoices. You can also manage this yourself anytime under Settings > Billing > Purchase Order Number. Let us know if you'd like past invoices reissued with the PO too!",
+  "duration_s": 24.8
  },
  "NW-1103": {
   "department": "security",
@@ -252,17 +252,17 @@
   "duration_s": 10.1
  },
  "NW-1105": {
-  "department": "technical",
+  "department": "billing",
   "urgency": "normal",
-  "why": "The customer frames it as a possible bug, a filter mistake, or intended behavior and mentions invoices, which could suggest billing, but this is about how the analytics tile treats voided invoices in their own data rather than a charge from us, so technical should confirm the report logic; nothing is blocked, so urgency is normal.",
-  "draft_reply": "Hi Marguerite, thanks for the clear details. A $3,200 gap matching a voided invoice is a strong lead, and I'm passing this to our technical team to confirm whether the Monthly Revenue tile is counting voided invoices. To speed things up, please reply with the voided invoice number and a screenshot of the tile's date range and filters. We'll follow up shortly.",
-  "duration_s": 11.6
+  "why": "This hinges on whether voided invoices should be excluded from the Monthly Revenue tile, which is a revenue-recognition/reporting question best owned by billing rather than a technical bug report.",
+  "draft_reply": "Thanks for flagging this, Marguerite. You're right that voided invoices can cause this kind of mismatch \u2014 the dashboard tile may include them before they're finalized as voided. We'll check your August data and confirm whether this is expected behavior or a display bug, and follow up shortly.",
+  "duration_s": 12.6
  },
  "NW-1119": {
   "department": "billing",
   "urgency": "high",
-  "why": "It could read as security because it asks for bank details, or as account because of the restriction warning, but it is a failed payment plus a payment-method change, so billing owns it; urgency is high because a $4,750 invoice has a 3-day restriction deadline, and bank details must go only through a verified channel while the full-payment question needs billing to confirm policy.",
-  "draft_reply": "Hi Douglas, thanks for flagging this. Our billing team will review your request to pay by ACH, for this invoice and going forward. For security, bank details are shared only through your verified account contact or billing portal, not open email. We've marked your 3-day deadline as urgent, and billing will promptly confirm whether full payment is required to avoid restriction.",
-  "duration_s": 13.8
+  "why": "This is a routine ACH payment-method switch, but the 3-day restriction deadline makes it time-sensitive, and sharing bank details by email requires verifying the requester's identity first to avoid impersonation risk.",
+  "draft_reply": "Hi Douglas, thanks for flagging this. Yes, we can accept ACH for NW-INV-22016 and switch future invoices to ACH. To avoid the restriction, the $4,750.00 balance must be paid in full within 3 days. For security, our billing team will call you to confirm details before sending secure ACH instructions.",
+  "duration_s": 13.1
  }
 }

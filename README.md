@@ -7,6 +7,12 @@ A live demo of two AI models working together on a laptop:
 
 The demo runs in three acts: sorting a 120-email inbox, escalating hard cases to Claude with a confidence dial, and blocking a coding agent's `rm -rf data/` in real time. Each act has its talk track in [DEMO.md](DEMO.md).
 
+![The dashboard after a full run: 120 emails sorted into team pigeonholes, 38 hard cases answered by Claude, and the guardrail feed](docs/dashboard.png)
+
+When the coding agent tries something destructive, Laya stops it before it runs:
+
+![A full-screen Blocked stamp over the dashboard for the command rm -rf data/, flagged by Laya in 34 ms](docs/blocked.png)
+
 ## Setup
 Tested on Linux with an RTX 4050 (6 GB) and Claude Code on a Pro plan.
 
