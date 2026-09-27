@@ -28,6 +28,18 @@ Then open http://127.0.0.1:8765.
 
 All emails in `data/inbox.jsonl`, and all credentials in `demo-template/.env`, are synthetic.
 
+## How it talks to Claude (no API key needed)
+The demo doesn't use the paid Claude API. It calls Claude through the Claude Code CLI (`claude -p`), signed in with a Claude Pro subscription. Usage counts against your plan's limits, not pay-per-token API credit.
+
+If `ANTHROPIC_API_KEY` is set in your shell, `claude -p` would use that key instead of your subscription. So the app removes the variable before each call (see `ask_claude` in `app/server.py`). Do the same when you run Act 3 by hand:
+
+```bash
+unset ANTHROPIC_API_KEY
+claude auth login    # only if you haven't signed in to Claude Code yet
+```
+
+Laya never makes network calls. It runs entirely on your GPU, and once the model weights are downloaded it works offline. If you have no Claude login at all, start the app with `CLAUDE_MODE=replay` to replay the cached answers in `cache/claude.json`.
+
 ## License
 
 MIT. See [LICENSE](LICENSE). Laya itself is Apache-2.0.
